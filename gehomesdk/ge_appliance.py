@@ -146,6 +146,12 @@ class GeAppliance:
         """
         return self._encoder.get_data_type(erd_code)
 
+    async def async_send_command(self, cmd: str, data=[]):
+        """
+        encoding???
+        """
+        await self.client.async_send_command(self, cmd, data)
+
     async def async_set_erd_value(self, erd_code: ErdCodeType, value: Any):
         """
         Send a new erd value to the appliance.
@@ -155,8 +161,7 @@ class GeAppliance:
         erd_value = self.encode_erd_value(erd_code, value)
         await self.client.async_set_erd_value(self, erd_code, erd_value)
 
-    def update_erd_value(
-            self, erd_code: ErdCodeType, erd_value: str) -> bool:
+    def update_erd_value(self, erd_code: ErdCodeType, erd_value: str) -> bool:
         """
         Setter for ERD code values.
 
