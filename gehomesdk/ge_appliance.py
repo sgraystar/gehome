@@ -148,7 +148,7 @@ class GeAppliance:
 
     async def async_send_command(self, cmd: str, data = None):
         """
-        Send a a command to the appliance.
+        Send a command to the appliance.
         """
         if data is None:
             data = []
