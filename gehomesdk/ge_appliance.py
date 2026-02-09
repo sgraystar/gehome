@@ -146,14 +146,6 @@ class GeAppliance:
         """
         return self._encoder.get_data_type(erd_code)
 
-    async def async_send_command(self, cmd: str, data = None):
-        """
-        Send a command to the appliance.
-        """
-        if data is None:
-            data = []
-        await self.client.async_send_command(self, cmd, data)
-
     async def async_set_erd_value(self, erd_code: ErdCodeType, value: Any):
         """
         Send a new erd value to the appliance.
